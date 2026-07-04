@@ -15,46 +15,44 @@ ReconX is a centralized directory of over 80 professional tools used by security
 
 ---
 
-## Interface
+## Interface & Features in Action
 
 <div align="center">
   <img src="docs/landing.png" alt="ReconX Landing Page" width="800"/>
   <br/>
-  <em>ReconX Landing Page</em>
+  <em>The Distraction-Free Landing Interface</em>
 </div>
 
 <br/>
 
 <div align="center">
-  <img src="docs/dashboard.png" alt="ReconX Dashboard" width="800"/>
+  <img src="docs/domain-dns.png" alt="Domain & DNS Dashboard" width="800"/>
   <br/>
-  <em>ReconX Dashboard & Tool Directory</em>
-</div>
-
-<br/>
-
-## Features in Action
-
-<div align="center">
-  <img src="docs/discovery-workflow.png" alt="Discovery Workflow" width="800"/>
-  <br/>
-  <em>Seamless Discovery & Target Mapping</em>
+  <em>Domain & DNS Intelligence Mapping</em>
 </div>
 
 <br/>
 
 <div align="center">
-  <img src="docs/threat-intel.png" alt="Threat Intelligence Analysis" width="800"/>
+  <img src="docs/threat-intel.png" alt="Threat Intelligence Dashboard" width="800"/>
   <br/>
-  <em>Live Threat Intelligence Dashboards</em>
+  <em>Live Threat Intelligence & Malware Sandboxing</em>
 </div>
 
 <br/>
 
 <div align="center">
-  <img src="docs/infrastructure-mapping.png" alt="Infrastructure Mapping" width="800"/>
+  <img src="docs/search-intel.png" alt="Search Intelligence Dashboard" width="800"/>
   <br/>
-  <em>Deep Infrastructure & Cloud Profiling</em>
+  <em>Deep Search & Infrastructure Intelligence</em>
+</div>
+
+<br/>
+
+<div align="center">
+  <img src="docs/email-intel.png" alt="Email Intelligence Dashboard" width="800"/>
+  <br/>
+  <em>Identity & Email Exposure Tracing</em>
 </div>
 
 <br/>
