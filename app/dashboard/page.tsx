@@ -1,3 +1,4 @@
+import { Suspense } from "react"
 import { ToolGrid } from "@/components/tool-grid"
 import { ThemeToggle } from "@/components/theme-toggle"
 import { MobileSidebar } from "@/components/mobile-sidebar"
@@ -9,7 +10,9 @@ export default function DashboardPage() {
       {/* ── Sticky topbar ───────────────────────────────── */}
       <header className="shrink-0 sticky top-0 z-10 h-11 flex items-center justify-between px-4 border-b border-border bg-background/95 backdrop-blur-sm">
         <div className="flex items-center gap-0 select-none leading-none">
-          <MobileSidebar />
+          <Suspense fallback={<div className="w-8 h-8 mr-2 md:hidden" />}>
+            <MobileSidebar />
+          </Suspense>
           <span
             style={{ fontFamily: "Inter, sans-serif", fontWeight: 400, fontSize: "0.75rem", letterSpacing: "0.05em", textTransform: "uppercase" }}
             className="text-muted-foreground"
@@ -30,7 +33,9 @@ export default function DashboardPage() {
 
       {/* ── Scrollable content ───────────────────────────── */}
       <main className="flex-1 overflow-y-auto px-6 py-5">
-        <ToolGrid />
+        <Suspense fallback={<div className="w-full h-32 flex items-center justify-center text-muted-foreground text-sm">Loading tools...</div>}>
+          <ToolGrid />
+        </Suspense>
       </main>
 
       {/* ── Status bar ───────────────────────────────────── */}
