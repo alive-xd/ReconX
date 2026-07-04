@@ -1,6 +1,7 @@
 "use client"
 
 import Link from "next/link"
+import { useSearchParams } from "next/navigation"
 import { cn } from "@/lib/utils"
 import { useAppStore } from "@/store/use-app-store"
 import { groups, categories, osintTools } from "@/lib/data"
@@ -11,7 +12,10 @@ import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/
 import { useState, useEffect, useRef } from "react"
 
 export function Sidebar() {
-  const { isSidebarExpanded, toggleSidebar, activeCategory, setActiveCategory } = useAppStore()
+  const { isSidebarExpanded, toggleSidebar } = useAppStore()
+  const searchParams = useSearchParams()
+  const activeCategory = searchParams.get("category") ?? "Search Intelligence"
+
   const [mounted, setMounted] = useState(false)
   const [search, setSearch] = useState("")
   const searchRef = useRef<HTMLInputElement>(null)
@@ -40,7 +44,7 @@ export function Sidebar() {
     <aside
       aria-label="Navigation sidebar"
       className={cn(
-        "shrink-0 flex flex-col h-full border-r border-border bg-card",
+        "shrink-0 hidden md:flex flex-col h-full border-r border-border bg-card",
         "transition-[width] duration-200 ease-in-out will-change-[width]",
         isSidebarExpanded ? "w-60" : "w-[52px]",
       )}
@@ -139,13 +143,14 @@ export function Sidebar() {
                           ).length
 
                           return (
-                            <button
+                            <Link
                               key={catId}
-                              onClick={() => setActiveCategory(catId)}
+                              href={`?category=${encodeURIComponent(catId)}`}
+                              scroll={false}
                               aria-current={isActive ? "page" : undefined}
                               className={cn(
                                 "w-full flex items-center justify-between gap-2 pl-3 pr-2 py-1.5 rounded text-sm transition-colors",
-                                "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring",
+                                "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring no-underline",
                                 isActive
                                   ? "bg-primary/10 text-foreground font-medium"
                                   : "text-muted-foreground hover:bg-secondary hover:text-foreground",
@@ -170,7 +175,7 @@ export function Sidebar() {
                               >
                                 {count}
                               </span>
-                            </button>
+                            </Link>
                           )
                         })}
                       </div>
@@ -198,8 +203,9 @@ export function Sidebar() {
                     return (
                       <Tooltip key={catId}>
                         <TooltipTrigger asChild>
-                          <button
-                            onClick={() => setActiveCategory(catId)}
+                          <Link
+                            href={`?category=${encodeURIComponent(catId)}`}
+                            scroll={false}
                             aria-current={isActive ? "page" : undefined}
                             aria-label={category.name}
                             className={cn(
@@ -211,7 +217,7 @@ export function Sidebar() {
                             )}
                           >
                             <Icon className="w-4 h-4 shrink-0" />
-                          </button>
+                          </Link>
                         </TooltipTrigger>
                         <TooltipContent side="right" className="text-xs">
                           {category.name}

@@ -1,15 +1,17 @@
 "use client"
 
 import { useState, useCallback, useEffect, useRef } from "react"
-import { Search, ExternalLink } from "lucide-react"
+import { useSearchParams } from "next/navigation"
+import { Search, ExternalLink, Frown } from "lucide-react"
 import { cn } from "@/lib/utils"
-import { useAppStore } from "@/store/use-app-store"
 import { osintTools, categories } from "@/lib/data"
 
 export function ToolGrid() {
   const [searchQuery, setSearchQuery] = useState("")
   const searchRef = useRef<HTMLInputElement>(null)
-  const { activeCategory } = useAppStore()
+  
+  const searchParams = useSearchParams()
+  const activeCategory = searchParams.get("category") ?? "Search Intelligence"
 
   // ── Ctrl+K focuses the search ──────────────────────
   useEffect(() => {
