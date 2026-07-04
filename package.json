@@ -8,7 +8,7 @@
   "scripts": {
     "build": "next build",
     "dev": "next dev",
-    "lint": "eslint .",
+    "lint": "next lint",
     "start": "next start"
   },
   "dependencies": {
@@ -68,9 +68,12 @@
     "zustand": "^5.0.14"
   },
   "devDependencies": {
+    "@eslint/eslintrc": "^3.3.5",
     "@types/node": "^22",
     "@types/react": "^19",
     "@types/react-dom": "^19",
+    "eslint": "^8.57.1",
+    "eslint-config-next": "^16.2.10",
     "postcss": "^8.5",
     "tailwindcss": "^3.4.17",
     "typescript": "^5"
