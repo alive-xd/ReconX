@@ -1,5 +1,6 @@
 import { ToolGrid } from "@/components/tool-grid"
 import { ThemeToggle } from "@/components/theme-toggle"
+import { MobileSidebar } from "@/components/mobile-sidebar"
 
 export default function DashboardPage() {
   return (
@@ -7,7 +8,8 @@ export default function DashboardPage() {
 
       {/* ── Sticky topbar ───────────────────────────────── */}
       <header className="shrink-0 sticky top-0 z-10 h-11 flex items-center justify-between px-4 border-b border-border bg-background/95 backdrop-blur-sm">
-        <div className="flex items-baseline gap-0 select-none leading-none">
+        <div className="flex items-center gap-0 select-none leading-none">
+          <MobileSidebar />
           <span
             style={{ fontFamily: "Inter, sans-serif", fontWeight: 400, fontSize: "0.75rem", letterSpacing: "0.05em", textTransform: "uppercase" }}
             className="text-muted-foreground"
