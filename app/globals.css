@@ -1,0 +1,120 @@
+/* ── Fonts ─────────────────────────────────────────────────────────────── */
+/* Inter: primary font for all UI — headers, body, wordmark */
+/* JetBrains Mono: code, terminal output, monospaced labels */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;900&family=JetBrains+Mono:wght@400;500&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ── Design Tokens ─────────────────────────────────────────────────────── */
+@layer base {
+  :root {
+    --background:          0 0% 97%;
+    --foreground:          0 0% 8%;
+    --card:                0 0% 100%;
+    --card-foreground:     0 0% 8%;
+    --popover:             0 0% 100%;
+    --popover-foreground:  0 0% 8%;
+    --primary:             143 32% 38%;
+    --primary-foreground:  0 0% 98%;
+    --secondary:           0 0% 93%;
+    --secondary-foreground:0 0% 15%;
+    --muted:               0 0% 92%;
+    --muted-foreground:    0 0% 44%;
+    --accent:              143 32% 38%;
+    --accent-foreground:   0 0% 98%;
+    --destructive:         0 72% 51%;
+    --destructive-foreground: 0 0% 98%;
+    --border:              0 0% 88%;
+    --input:               0 0% 88%;
+    --ring:                143 32% 38%;
+    --radius:              0.5rem;
+  }
+
+  .dark {
+    --background:          0 0% 5.5%;
+    --foreground:          36 12% 93%;
+    --card:                0 0% 9%;
+    --card-foreground:     36 12% 93%;
+    --popover:             0 0% 9%;
+    --popover-foreground:  36 12% 93%;
+    --primary:             143 32% 48%;
+    --primary-foreground:  0 0% 5%;
+    --secondary:           0 0% 12%;
+    --secondary-foreground:36 12% 93%;
+    --muted:               0 0% 14%;
+    --muted-foreground:    0 0% 52%;
+    --accent:              143 32% 48%;
+    --accent-foreground:   0 0% 5%;
+    --destructive:         0 55% 42%;
+    --destructive-foreground: 36 12% 93%;
+    --border:              0 0% 16%;
+    --input:               0 0% 16%;
+    --ring:                143 32% 48%;
+  }
+}
+
+/* ── Base ──────────────────────────────────────────────────────────────── */
+@layer base {
+  html {
+    color-scheme: light dark;
+    height: 100%;
+    overflow: hidden;
+  }
+
+  * {
+    @apply border-border;
+    scrollbar-width: thin;
+    scrollbar-color: transparent transparent;
+  }
+
+  *:hover {
+    scrollbar-color: hsl(var(--border)) transparent;
+  }
+
+  ::-webkit-scrollbar       { width: 5px; height: 5px; }
+  ::-webkit-scrollbar-track  { background: transparent; }
+  ::-webkit-scrollbar-thumb  {
+    background-color: transparent;
+    border-radius: 9999px;
+    transition: background-color 0.2s;
+  }
+  *:hover::-webkit-scrollbar-thumb { background-color: hsl(var(--border)); }
+
+  body {
+    @apply bg-background text-foreground antialiased;
+    font-family: 'Inter', sans-serif;
+    height: 100%;
+    overflow: hidden;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Inter', sans-serif;
+    @apply tracking-tight;
+  }
+
+  code, pre, kbd {
+    font-family: 'JetBrains Mono', monospace;
+  }
+}
+
+/* ── Components ────────────────────────────────────────────────────────── */
+@layer components {
+  /* Tool card */
+  .surface-card {
+    @apply rounded-lg border bg-card;
+    transition: border-color 0.15s ease, box-shadow 0.15s ease;
+  }
+
+  .surface-card:hover {
+    border-color: hsl(var(--primary) / 0.5);
+    box-shadow: 0 0 0 1px hsl(var(--primary) / 0.12), 0 4px 16px -4px hsl(0 0% 0% / 0.3);
+  }
+
+  /* Landing page dot-grid background */
+  .dot-grid {
+    background-image: radial-gradient(circle, hsl(var(--border)) 1px, transparent 1px);
+    background-size: 28px 28px;
+  }
+}
